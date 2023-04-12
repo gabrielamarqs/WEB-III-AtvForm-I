@@ -41,9 +41,12 @@ public class FormServlet extends HttpServlet {
         req.setAttribute("attr_idioma", fieldIdioma);
         req.setAttribute("attr_habilidades", fieldHabilidades);
 
+        if (fieldNome.equals("")){
+            resp.sendRedirect("http://localhost:8080/app_gabriela/index.jsp?msg=campo nome está em branco");
+        } else {
         // 3. encaminhar essas informações para quem melhor sabe o que fazer com eles
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("tela_confirmacao.jsp");
-        requestDispatcher.forward(req, resp);
+        requestDispatcher.forward(req, resp); }
 
 
     }
